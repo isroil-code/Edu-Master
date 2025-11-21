@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>Login</title>{% endblock title %}
+
+{% block hero %}
+<div class="auth-page">
+    <div class="auth-card fade-in-up">
+        <div class="auth-left">
+            <div class="auth-brand">SkillUp</div>
+            <h3>Welcome back</h3>
+            <p>Sign in to continue to your learning dashboard and pick up where you left off.</p>
+        </div>
+        <div class="auth-right">
+            <div class="form-title">Login to your account</div>
+            <div class="auth-sub">Enter your credentials to access your account</div>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="auth-actions">
+                    <button type="submit" class="btn btn-primary w-100 btn-lg">Login</button>
+                </div>
+            </form>
+            <div style="margin-top:12px">Don't have an account? <a href="{% url 'register' %}" class="auth-cta">Create one</a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

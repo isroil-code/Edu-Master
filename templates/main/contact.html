@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Contact - SkillUp</title>{% endblock %}
+
+{% block hero %}
+<section class="container my-5">
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <h3 class="fw-bold">Contact us</h3>
+      <p class="text-muted">Have a question? Send us a message and we'll get back to you as soon as possible.</p>
+      <div class="card p-3 mb-3">
+        <h6>Contact info</h6>
+        <p class="small text-muted">Address: 123 Learning St, Tashkent</p>
+        <p class="small text-muted">Phone: +998712031324</p>
+        <p class="small text-muted">Email: support@example.com</p>
+      </div>
+      <div class="card p-3">
+        <h6>Send a message</h6>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <div class="mb-2">
+            <label class="form-label">Name</label>
+            <input class="form-control" name="name" />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Email</label>
+            <input class="form-control" name="email" />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="5" name="message"></textarea>
+          </div>
+          <button class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <h6 class="fw-bold">Our location</h6>
+      <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d973.123!2d69.2!3d41.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDEuMzAgNDkuNDQ!5e0!3m2!1sen!2s!4v0000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

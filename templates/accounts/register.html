@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>Register</title>{% endblock title %}
+
+{% block hero %}
+<div class="auth-page">
+    <div class="auth-card fade-in-up">
+        <div class="auth-left">
+            <div class="auth-brand">SkillUp</div>
+            <h3>Join SkillUp</h3>
+            <p>Create your free account and start learning with top teachers today.</p>
+        </div>
+        <div class="auth-right">
+            <div class="form-title">Create an account</div>
+            <div class="auth-sub">Fill the form to get started</div>
+            <form method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="auth-actions">
+                    <button type="submit" class="btn btn-primary w-100 btn-lg">Register</button>
+                </div>
+            </form>
+            <div style="margin-top:12px">Already registered? <a href="{% url 'login' %}" class="auth-cta">Sign in</a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

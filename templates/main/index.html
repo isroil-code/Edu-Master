@@ -1,0 +1,269 @@
+{% extends 'base.html' %} {% block title %} <title>Home</title>{% endblock %} 
+{%block hero %}
+<div class="row align-items-center mb-5">
+  <div class="col-lg-6 d-flex flex-column justify-content-center">
+    <h1 class="hero-title">Build job-ready skills</h1>
+    <p class="hero-subtitle">
+      Learn from top mentors and get certificates. Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Natus officia voluptate sit, illum quae sed
+      unde, deserunt repellendus debitis totam quis quisquam amet dolorum?
+      Facere, modi! Similique nisi asperiores quibusdam iusto optio reiciendis
+      labore, sed atque vero. Laboriosam quod quos, obcaecati expedita aut quo
+      saepe iusto omnis ab sit. Eos eaque consequuntur sed pariatur deserunt
+      tenetur officia. Minima praesentium voluptatibus iste exercitationem
+      dolore temporibus nihil ad nostrum aperiam magni rem harum illo dicta id
+      nesciunt assumenda earum eaque porro dignissimos aliquid, expedita quis
+      consectetur ea quisquam. Similique debitis excepturi inventore sint, ut
+      corrup
+    </p>
+    <a href="#" class="btn btn-primary btn-lg mt-3">Start Learning</a>
+  </div>
+  <div class="col-lg-6 d-flex justify-content-center">
+    <img
+      src="/media/flexable.jpg"
+      class="img-fluid rounded"
+      style="max-height: 400px; object-fit: cover"
+    />
+  </div>
+</div>
+
+<h3 class="fw-bold mb-4">Popular Categories</h3>
+{% for c in categories %}
+<div class="row g-4">
+  <div class="col-md-4 d-flex">
+    <div class="p-2 bg-white shadow-sm rounded-3 flex-fill text-center">
+      {{c.name}}
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<h3 class="fw-bold mt-5 mb-3">Featured Courses</h3>
+{% for c in courses %}
+<div class="row g-4">
+  <div class="col-md-6 d-flex">
+    <div class="card shadow-sm flex-fill">
+      <img
+        src="{{c.image.url}}"
+        class="card-img-top"
+        style="height: 350px; object-fit: cover"
+      />
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{c.name}}</h5>
+        <p class="card-text">{{c.bio}}</p>
+        <a href="{% url 'lessons' c.pk %}" class="btn btn-primary mt-auto">View</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+
+<div class="container my-5">
+  <div class="d-flex flex-wrap justify-content-between gap-3">
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="Yoshlar"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="Kambagallik"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="Maktab"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="Transport"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="my.gov.uz"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="IMV"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="Soliq"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+    <div
+      class="integration-card flex-fill text-center p-3 bg-light shadow-sm rounded"
+    >
+      <img
+        src=""
+        alt="Adliya"
+        class="img-fluid"
+        style="max-height: 100px; object-fit: contain"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Why It Works Section -->
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">Why SkillUp Works</h2>
+    <p class="text-muted">
+      Our approach ensures learning is simple, effective, and engaging for
+      everyone.
+    </p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4 d-flex">
+      <div
+        class="d-flex flex-column flex-fill align-items-center text-center bg-white p-3 shadow-sm rounded"
+      >
+        <img
+          src="/media/expertteachers.jpg"
+          alt="Expert Teachers"
+          class="img-fluid mb-3"
+          style="max-height: 200px; width: 100%; object-fit: cover"
+        />
+        <h5>Expert Teachers</h5>
+        <p>
+          Learn from top teachers who explain concepts clearly and step-by-step.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex">
+      <div
+        class="d-flex flex-column flex-fill align-items-center text-center bg-white p-3 shadow-sm rounded"
+      >
+        <img
+          src="/media/flexable.jpg"
+          alt="Flexible Learning"
+          class="img-fluid mb-3"
+          style="max-height: 200px; width: 100%; object-fit: cover"
+        />
+        <h5>Flexible Learning</h5>
+        <p>Study at your own pace, anywhere, anytime, on any device.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex">
+      <div
+        class="d-flex flex-column flex-fill align-items-center text-center bg-white p-3 shadow-sm rounded"
+      >
+        <img
+          src=""
+          alt="Interactive Lessons"
+          class="img-fluid mb-3"
+          style="max-height: 200px; width: 100%; object-fit: cover"
+        />
+        <h5>Interactive Lessons</h5>
+        <p>
+          Engage with interactive exercises and quizzes to reinforce your
+          knowledge.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex">
+      <div
+        class="d-flex flex-column flex-fill align-items-center text-center bg-white p-3 shadow-sm rounded"
+      >
+        <img
+          src=""
+          alt="Progress Tracking"
+          class="img-fluid mb-3"
+          style="max-height: 200px; width: 100%; object-fit: cover"
+        />
+        <h5>Progress Tracking</h5>
+        <p>Track your learning journey and see improvements over time.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex">
+      <div
+        class="d-flex flex-column flex-fill align-items-center text-center bg-white p-3 shadow-sm rounded"
+      >
+        <img
+          src=""
+          alt="Community Support"
+          class="img-fluid mb-3"
+          style="max-height: 200px; width: 100%; object-fit: cover"
+        />
+        <h5>Community Support</h5>
+        <p>Join a community of learners and get help whenever you need it.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex">
+      <div
+        class="d-flex flex-column flex-fill align-items-center text-center bg-white p-3 shadow-sm rounded"
+      >
+        <img
+          src=""
+          alt="Free Access"
+          class="img-fluid mb-3"
+          style="max-height: 200px; width: 100%; object-fit: cover"
+        />
+        <h5>Free Access</h5>
+        <p>
+          All our core courses are completely free to ensure education is
+          accessible to everyone.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container h2 {
+    font-size: 36px;
+  }
+  .container h5 {
+    font-weight: 600;
+  }
+  .container p {
+    font-size: 14px;
+    color: #555;
+  }
+  .integration-card img {
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>Comments</title>{% endblock title %} 
+
+{% block hero %}
+    <div class="container mt-4">
+        <div class="card p-4">
+            <h5 class="mb-3">Leave a comment</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.comment.label_tag }}
+                    {{ form.comment }}
+                    {% if form.comment.errors %}
+                        <div class="text-danger small">{{ form.comment.errors }}</div>
+                    {% endif %}
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Send Comment</button>
+                    <a href="javascript:history.back()" class="btn btn-link">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock  %}

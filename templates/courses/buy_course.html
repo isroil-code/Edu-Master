@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>Buy Course</title>{% endblock title %} 
+
+{% block hero %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" placeholder="XXXXXX" name="code">
+        <button>OK</button>
+        {% if error %}
+            <p style="color: red;">{{error}}</p>
+        {% endif %}
+    </form>
+{% endblock  %}

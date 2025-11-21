@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>Buy Course</title>{% endblock title %} 
+
+{% block hero %}
+    <form method="post">
+        {% csrf_token %}
+        {% if message %}
+        {{message}}
+        <br>
+        <a href="{% url 'home' %}">back</a>
+        {% else %}
+        <p>Are you going to buy it</p>
+        <button>OK</button>
+        {% endif %}
+    </form>
+{% endblock  %}

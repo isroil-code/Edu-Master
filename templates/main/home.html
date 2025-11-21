@@ -1,0 +1,528 @@
+{% extends 'base.html' %} {% block title %}<title>Home - SkillUp</title>{% endblock %}
+{%block hero %}
+
+<!-- Hero Section -->
+<div class="row align-items-center mb-5">
+  <div class="col-lg-6 d-flex flex-column justify-content-center animate-fade-in-up">
+    <h1 class="hero-title" style="font-size: 48px; line-height: 1.2; margin-bottom: 16px;">Upskill for the future of work</h1>
+    <p class="hero-subtitle" style="font-size: 18px; line-height: 1.6; margin-bottom: 24px;">
+      Learn from expert instructors, build real projects, and transform your career. Get certified and join thousands of successful learners worldwide.
+    </p>
+    <div class="d-flex gap-3 flex-wrap">
+      <a href="/courses/" class="btn btn-primary btn-lg btn-glow">
+        <i class="bi bi-arrow-right ms-2"></i> Explore All Courses
+      </a>
+      <a href="#learning-paths" class="btn btn-outline-primary btn-lg">
+        View Learning Paths
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-6 d-flex justify-content-center animate-slide-right">
+    <div class="rounded" style="width:100%;max-width:520px;overflow:hidden;box-shadow:0 20px 50px rgba(13,110,253,0.15)">
+      <img
+        src="/media/flexable.jpg"
+        class="img-fluid"
+        style="object-fit: cover; height: 380px; width: 100%;"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Stats Section -->
+<div class="row text-center my-5 py-4 gradient-light rounded" style="margin-left: -8px; margin-right: -8px; padding-left: 8px; padding-right: 8px;">
+  <div class="col-md-3 stat-card animate-fade-in-up stagger-1">
+    <div class="stat-number">120+</div>
+    <div class="stat-label">Expert Courses</div>
+  </div>
+  <div class="col-md-3 stat-card animate-fade-in-up stagger-2">
+    <div class="stat-number">40K</div>
+    <div class="stat-label">Active Students</div>
+  </div>
+  <div class="col-md-3 stat-card animate-fade-in-up stagger-3">
+    <div class="stat-number">96%</div>
+    <div class="stat-label">Success Rate</div>
+  </div>
+  <div class="col-md-3 stat-card animate-fade-in-up stagger-4">
+    <div class="stat-number">8K+</div>
+    <div class="stat-label">Projects Built</div>
+  </div>
+</div>
+
+<!-- Learning Paths Section -->
+<div class="my-5" id="learning-paths">
+  <h3 class="fw-bold mb-2 animate-fade-in-up">Choose Your Learning Path</h3>
+  <p class="text-muted mb-4 animate-fade-in-up stagger-1">Structured courses organized by skill level and career goals</p>
+  <div class="row g-3">
+    {% for c in categories %}
+    <div class="col-md-3 animate-fade-in-up stagger-{{ forloop.counter }}">
+      <div class="p-3 bg-white border rounded-3 text-center cursor-pointer feature-card" style="transition: all .3s ease; cursor: pointer;">
+        <div class="icon-circle mx-auto mb-3">
+          <i class="bi bi-collection"></i>
+        </div>
+        <h6 class="fw-bold">{{ c.name }}</h6>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Featured Courses Section -->
+<div class="my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h3 class="fw-bold mb-1">Featured Courses</h3>
+      <p class="text-muted">Explore our most popular and highly-rated courses</p>
+    </div>
+    <a href="/courses/" class="btn btn-sm btn-outline-primary">View All</a>
+  </div>
+  <div class="row g-4">
+    {% for c in courses %}
+    <div class="col-md-4 animate-fade-in-up stagger-{{ forloop.counter }}">
+      <div class="card shadow-sm hover-card flex-fill">
+        <div style="position: relative; height: 240px; overflow: hidden;">
+          <img
+            src="{{ c.image.url }}"
+            class="card-img-top"
+            style="height: 100%; object-fit: cover; width: 100%;"
+          />
+          <div style="position: absolute; top: 12px; right: 12px; background: var(--primary); color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
+            ★ {{ c.rate }}
+          </div>
+        </div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold">{{ c.name }}</h5>
+          <p class="card-text text-muted truncate-2" style="font-size: 14px;">{{ c.bio|truncatechars:120}}</p>
+          <div class="mt-auto pt-2 border-top">
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">{{ c.lessons.count|default:0 }} lessons</small>
+              <a href="{% url 'course-detail' c.pk %}" class="btn btn-sm btn-primary">View</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+<div class="my-5 py-4" style="background: #f9f9ff; border-radius: 12px; padding: 40px 20px;">
+  <h5 class="text-center fw-bold mb-4 animate-fade-in-up">Trusted by Leading Organizations</h5>
+  <div class="row g-3 align-items-center">
+    <div class="col-md-2 col-sm-4 text-center animate-fade-in-up stagger-1">
+      <div style="padding: 16px; opacity: 0.6; transition: opacity .3s; cursor: pointer;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
+        <i class="bi bi-building fs-3" style="color: var(--muted);"></i>
+        <small class="d-block mt-2">Yoshlar</small>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-4 text-center animate-fade-in-up stagger-2">
+      <div style="padding: 16px; opacity: 0.6; transition: opacity .3s; cursor: pointer;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
+        <i class="bi bi-graph-up fs-3" style="color: var(--muted);"></i>
+        <small class="d-block mt-2">Ministry</small>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-4 text-center animate-fade-in-up stagger-3">
+      <div style="padding: 16px; opacity: 0.6; transition: opacity .3s; cursor: pointer;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
+        <i class="bi bi-book fs-3" style="color: var(--muted);"></i>
+        <small class="d-block mt-2">Education</small>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-4 text-center animate-fade-in-up stagger-4">
+      <div style="padding: 16px; opacity: 0.6; transition: opacity .3s; cursor: pointer;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
+        <i class="bi bi-bus-front fs-3" style="color: var(--muted);"></i>
+        <small class="d-block mt-2">Transport</small>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-4 text-center animate-fade-in-up stagger-5">
+      <div style="padding: 16px; opacity: 0.6; transition: opacity .3s; cursor: pointer;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
+        <i class="bi bi-shield-check fs-3" style="color: var(--muted);"></i>
+        <small class="d-block mt-2">my.gov.uz</small>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-4 text-center animate-fade-in-up stagger-6">
+      <div style="padding: 16px; opacity: 0.6; transition: opacity .3s; cursor: pointer;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
+        <i class="bi bi-file-text fs-3" style="color: var(--muted);"></i>
+        <small class="d-block mt-2">Adliya</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Why SkillUp Works Section -->
+<div class="my-5 py-3">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold mb-3 animate-fade-in-up">Why SkillUp Works</h2>
+    <p class="text-muted animate-fade-in-up stagger-1" style="max-width: 600px; margin: 0 auto;">
+      Our unique approach combines expert instruction, hands-on projects, and a supportive community to ensure your success.
+    </p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4 animate-fade-in-up stagger-1">
+      <div class="feature-card p-4 rounded bg-white" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <h5 class="fw-bold">Expert Teachers</h5>
+        <p class="text-muted flex-grow-1">Learn from industry professionals with real-world experience and proven teaching records.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 animate-fade-in-up stagger-2">
+      <div class="feature-card p-4 rounded bg-white" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-clock"></i>
+        </div>
+        <h5 class="fw-bold">Learn at Your Pace</h5>
+        <p class="text-muted flex-grow-1">Study whenever you want, wherever you want. Lifetime access to all course materials.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 animate-fade-in-up stagger-3">
+      <div class="feature-card p-4 rounded bg-white" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-clipboard-check"></i>
+        </div>
+        <h5 class="fw-bold">Practical Projects</h5>
+        <p class="text-muted flex-grow-1">Build real projects for your portfolio. Get hands-on experience with modern tools and frameworks.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 animate-fade-in-up stagger-4">
+      <div class="feature-card p-4 rounded bg-white" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-graph-up"></i>
+        </div>
+        <h5 class="fw-bold">Track Progress</h5>
+        <p class="text-muted flex-grow-1">Monitor your learning journey with detailed analytics and progress tracking.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 animate-fade-in-up stagger-5">
+      <div class="feature-card p-4 rounded bg-white" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-people"></i>
+        </div>
+        <h5 class="fw-bold">Community Support</h5>
+        <p class="text-muted flex-grow-1">Connect with other learners, ask questions, and get help from instructors.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 animate-fade-in-up stagger-6">
+      <div class="feature-card p-4 rounded bg-white" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-award"></i>
+        </div>
+        <h5 class="fw-bold">Certificates</h5>
+        <p class="text-muted flex-grow-1">Earn recognized certificates to boost your resume and career prospects.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container h2 {
+    font-size: 36px;
+  }
+  .container h5 {
+    font-weight: 600;
+  }
+  .container p {
+    font-size: 14px;
+    color: #555;
+  }
+  .integration-card img {
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+
+<!-- Testimonials Section -->
+<div class="my-5 py-4">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold mb-3 animate-fade-in-up">What Students Say</h2>
+    <p class="text-muted animate-fade-in-up stagger-1" style="max-width: 600px; margin: 0 auto;">
+      Real feedback from real learners who have transformed their careers with SkillUp.
+    </p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4 animate-fade-in-up stagger-1">
+      <div class="testimonial-card bg-white">
+        <div class="d-flex gap-2 mb-2 testimonial-stars">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <p class="mb-3">The courses are incredibly well-structured. I completed the full-stack course and landed a job within 3 months!</p>
+        <div class="d-flex gap-2 align-items-center">
+          <img src="/media/people/ali.jpg" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" />
+          <div>
+            <strong class="d-block">Ali Rashidov</strong>
+            <small class="text-muted">Full Stack Developer</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 animate-fade-in-up stagger-2">
+      <div class="testimonial-card bg-white">
+        <div class="d-flex gap-2 mb-2 testimonial-stars">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <p class="mb-3">I loved the practical projects. The instructors provided excellent feedback and the community was super supportive.</p>
+        <div class="d-flex gap-2 align-items-center">
+          <img src="/media/people/nilufar_.jpg" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" />
+          <div>
+            <strong class="d-block">Nilufar Sharipova</strong>
+            <small class="text-muted">UI/UX Designer</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 animate-fade-in-up stagger-3">
+      <div class="testimonial-card bg-white">
+        <div class="d-flex gap-2 mb-2 testimonial-stars">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <p class="mb-3">Best investment I made in myself. The content is current, relevant, and taught by people actively working in the field.</p>
+        <div class="d-flex gap-2 align-items-center">
+          <img src="/media/people/otabek.jpg" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" />
+          <div>
+            <strong class="d-block">Otabek Aminov</strong>
+            <small class="text-muted">Marketing Manager</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Learning Roadmap Section -->
+<div class="my-5 py-4">
+  <h2 class="fw-bold mb-4 animate-fade-in-up">Your Learning Roadmap</h2>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="animate-fade-in-up stagger-1">
+        <div style="display: flex; gap: 20px; margin-bottom: 24px;">
+          <div style="text-align: center; flex-shrink: 0;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px;">1</div>
+          </div>
+          <div>
+            <h5 class="fw-bold">Choose a Course</h5>
+            <p style="color: #666; margin: 0;">Browse our catalog and select the course that matches your goals and skill level.</p>
+          </div>
+        </div>
+      </div>
+      <div class="animate-fade-in-up stagger-2">
+        <div style="display: flex; gap: 20px; margin-bottom: 24px;">
+          <div style="text-align: center; flex-shrink: 0;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px;">2</div>
+          </div>
+          <div>
+            <h5 class="fw-bold">Learn by Doing</h5>
+            <p style="color: #666; margin: 0;">Complete lessons, projects, and assignments at your own pace with lifetime access.</p>
+          </div>
+        </div>
+      </div>
+      <div class="animate-fade-in-up stagger-3">
+        <div style="display: flex; gap: 20px; margin-bottom: 24px;">
+          <div style="text-align: center; flex-shrink: 0;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px;">3</div>
+          </div>
+          <div>
+            <h5 class="fw-bold">Get Certified</h5>
+            <p style="color: #666; margin: 0;">Earn a certificate upon completion to showcase your new skills.</p>
+          </div>
+        </div>
+      </div>
+      <div class="animate-fade-in-up stagger-4">
+        <div style="display: flex; gap: 20px;">
+          <div style="text-align: center; flex-shrink: 0;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px;">4</div>
+          </div>
+          <div>
+            <h5 class="fw-bold">Advance Your Career</h5>
+            <p style="color: #666; margin: 0;">Use your new skills to land better opportunities or start your own projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card p-4 border-0 shadow-sm animate-fade-in-up stagger-2" style="background: linear-gradient(135deg, #f0f4ff 0%, #f9f9ff 100%);">
+        <h5 class="fw-bold mb-3">Quick Stats</h5>
+        <div class="mb-3">
+          <div style="font-size: 24px; font-weight: 800; color: var(--primary);">8 weeks</div>
+          <small style="color: #999;">Average course duration</small>
+        </div>
+        <div class="mb-3">
+          <div style="font-size: 24px; font-weight: 800; color: var(--primary);">5-10 hrs</div>
+          <small style="color: #999;">Per week commitment</small>
+        </div>
+        <div>
+          <div style="font-size: 24px; font-weight: 800; color: var(--primary);">Forever</div>
+          <small style="color: #999;">Course access period</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Instructor Spotlight Section -->
+<div class="my-5 py-4 gradient-light rounded" style="padding: 40px;">
+  <h2 class="fw-bold mb-4 animate-fade-in-up">Meet Our Expert Instructors</h2>
+  <div class="row g-4">
+    <div class="col-md-3 animate-fade-in-up stagger-1">
+      <div class="text-center p-3">
+        <img src="/media/people/muhammad ali.avif" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" />
+        <h6 class="fw-bold">Muhammad Ali</h6>
+        <small style="color: #666; display: block; margin-bottom: 6px;">Full Stack Developer</small>
+        <small style="color: #999;">8+ years experience • 2000+ students</small>
+      </div>
+    </div>
+    <div class="col-md-3 animate-fade-in-up stagger-2">
+      <div class="text-center p-3">
+        <img src="/media/people/zarifa.avif" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" />
+        <h6 class="fw-bold">Zarifakhon</h6>
+        <small style="color: #666; display: block; margin-bottom: 6px;">UI/UX Designer</small>
+        <small style="color: #999;">6+ years experience • 1500+ students</small>
+      </div>
+    </div>
+    <div class="col-md-3 animate-fade-in-up stagger-3">
+      <div class="text-center p-3">
+        <img src="/media/people/javlon.avif" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" />
+        <h6 class="fw-bold">Javlon Ahmed</h6>
+        <small style="color: #666; display: block; margin-bottom: 6px;">Data Scientist</small>
+        <small style="color: #999;">7+ years experience • 1800+ students</small>
+      </div>
+    </div>
+    <div class="col-md-3 animate-fade-in-up stagger-4">
+      <div class="text-center p-3">
+        <img src="/media/people/nilufar.jpg" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" />
+        <h6 class="fw-bold">Nilufar Khan</h6>
+        <small style="color: #666; display: block; margin-bottom: 6px;">Digital Marketer</small>
+        <small style="color: #999;">5+ years experience • 1200+ students</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog/Resources Preview -->
+<div class="my-5 py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold mb-1 animate-fade-in-up">Learning Resources</h2>
+      <p class="text-muted animate-fade-in-up stagger-1">Free guides, tips, and insights from our community</p>
+    </div>
+    <a href="/blog/" class="btn btn-sm btn-outline-primary animate-fade-in-up stagger-2">Read All Articles</a>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-4 animate-fade-in-up stagger-1">
+      <div class="card border-0 shadow-sm hover-card" style="overflow: hidden;">
+        <div style="height: 160px; background: linear-gradient(135deg, #6f42c1, #0d6efd); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 40px;">📘</div>
+        <div class="p-3">
+          <h6 class="fw-bold mb-2">10 Tips to Learn Faster</h6>
+          <p style="font-size: 13px; color: #666; margin: 0; line-height: 1.5;">Master proven techniques to accelerate your learning and retain more information.</p>
+          <a href="#" style="font-size: 12px; color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 8px;">Read more →</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 animate-fade-in-up stagger-2">
+      <div class="card border-0 shadow-sm hover-card" style="overflow: hidden;">
+        <div style="height: 160px; background: linear-gradient(135deg, #fd7e14, #ffc107); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 40px;">💼</div>
+        <div class="p-3">
+          <h6 class="fw-bold mb-2">Career Switch Guide</h6>
+          <p style="font-size: 13px; color: #666; margin: 0; line-height: 1.5;">Step-by-step roadmap for transitioning to a tech career successfully.</p>
+          <a href="#" style="font-size: 12px; color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 8px;">Read more →</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 animate-fade-in-up stagger-3">
+      <div class="card border-0 shadow-sm hover-card" style="overflow: hidden;">
+        <div style="height: 160px; background: linear-gradient(135deg, #20c997, #00d084); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 40px;">🎯</div>
+        <div class="p-3">
+          <h6 class="fw-bold mb-2">Portfolio Building</h6>
+          <p style="font-size: 13px; color: #666; margin: 0; line-height: 1.5;">Create impressive project portfolio that impresses employers and clients.</p>
+          <a href="#" style="font-size: 12px; color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 8px;">Read more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="my-5 py-4">
+  <h2 class="fw-bold mb-4 animate-fade-in-up">Frequently Asked Questions</h2>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="accordion" id="homePageFaq">
+        <div class="accordion-item border-0 mb-3 shadow-sm rounded animate-fade-in-up stagger-1">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" style="font-weight: 600; font-size: 15px;">
+              What makes SkillUp different from other platforms?
+            </button>
+          </h2>
+          <div id="faq-1" class="accordion-collapse collapse" data-bs-parent="#homePageFaq">
+            <div class="accordion-body" style="font-size: 14px; color: #666;">
+              We combine expert instruction with hands-on projects, lifetime access, and a supportive community. Our instructors are actively working professionals, not just trainers.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item border-0 mb-3 shadow-sm rounded animate-fade-in-up stagger-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" style="font-weight: 600; font-size: 15px;">
+              Can I download courses for offline viewing?
+            </button>
+          </h2>
+          <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#homePageFaq">
+            <div class="accordion-body" style="font-size: 14px; color: #666;">
+              Yes! With our premium courses, you can download video lessons for offline viewing on the mobile app.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item border-0 mb-3 shadow-sm rounded animate-fade-in-up stagger-3">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" style="font-weight: 600; font-size: 15px;">
+              Is there a community or forum?
+            </button>
+          </h2>
+          <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#homePageFaq">
+            <div class="accordion-body" style="font-size: 14px; color: #666;">
+              Absolutely! We have an active Discord community with over 10,000 members where you can ask questions, share projects, and network with other learners.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item border-0 shadow-sm rounded animate-fade-in-up stagger-4">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" style="font-weight: 600; font-size: 15px;">
+              Do you offer refunds?
+            </button>
+          </h2>
+          <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#homePageFaq">
+            <div class="accordion-body" style="font-size: 14px; color: #666;">
+              Yes! We offer a 30-day money-back guarantee on all paid courses. If you're not satisfied, we'll refund you completely.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4" style="padding-left: 40px;">
+      <div class="card border-0 shadow-sm p-4 animate-fade-in-up stagger-2" style="background: linear-gradient(135deg, #f0f4ff 0%, #f9f9ff 100%); position: sticky; top: 120px;">
+        <h5 class="fw-bold mb-3">Still Have Questions?</h5>
+        <p style="font-size: 13px; color: #666; margin-bottom: 16px;">Our support team is here to help. Reach out anytime.</p>
+        <a href="/contact/" class="btn btn-primary w-100" style="margin-bottom: 12px;">Contact Support</a>
+        <a href="/about/" class="btn btn-outline-primary w-100">Learn More About Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

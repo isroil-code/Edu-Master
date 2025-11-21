@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>Course Create</title>{% endblock title %} 
+
+{% block hero %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>create</button>
+        
+    </form>
+{% endblock  %}

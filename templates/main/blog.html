@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Blog - SkillUp</title>{% endblock %}
+
+{% block hero %}
+<section class="container my-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h3 class="fw-bold mb-4">Latest Posts</h3>
+      {% for post in posts %}
+      <div class="card mb-3 shadow-sm">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="/media/flexable.jpg" class="img-fluid" style="height:160px;object-fit:cover;width:100%" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text text-muted">{{ post.snippet|default:post.body|truncatechars:140 }}</p>
+              <a href="#" class="btn btn-sm btn-primary">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-lg-4">
+      <div class="card p-3 mb-3">
+        <input class="form-control" placeholder="Search posts..." />
+      </div>
+      <div class="card p-3 mb-3">
+        <h6>Categories</h6>
+        <ul class="list-unstyled small text-muted">
+          <li>Development</li>
+          <li>Design</li>
+          <li>Career</li>
+        </ul>
+      </div>
+      <div class="card p-3">
+        <h6>Recent Posts</h6>
+        <ul class="list-unstyled small text-muted">
+          <li>How to build a portfolio</li>
+          <li>Top 10 interview tips</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
