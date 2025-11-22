@@ -266,7 +266,7 @@
         <div class="card border-0 shadow-sm p-4" style="background: linear-gradient(135deg, #6f42c1 0%, #0d6efd 100%); color: #fff; position: sticky; top: 100px;">
           <h5 class="fw-bold mb-3">Ready to Level Up?</h5>
           <p style="margin-bottom: 20px; opacity: 0.95;">Join thousands of students already learning and advancing their careers.</p>
-          <a href="/register/" class="btn btn-light btn-lg w-100 fw-bold" style="color: var(--primary); margin-bottom: 12px;">Start Learning Free</a>
+          <a href="{% url 'login' %}" class="btn btn-light btn-lg w-100 fw-bold" style="color: var(--primary); margin-bottom: 12px;">Start Learning Free</a>
           <small style="opacity: 0.85; display: block; text-align: center;">✓ Instant access • No credit card required</small>
         </div>
       </div>
@@ -278,8 +278,8 @@
     <h2 class="fw-bold mb-3" style="font-size: 40px;">Your Future Starts Here</h2>
     <p style="font-size: 18px; margin-bottom: 28px; opacity: 0.95;">Choose a course, start learning, and transform your career in 8 weeks.</p>
     <div class="d-flex gap-3 justify-content-center flex-wrap">
-      <a href="/register/" class="btn btn-light btn-lg" style="color: var(--primary); padding: 14px 32px; font-weight: 600;">Create Free Account</a>
-      <a href="/courses/" class="btn btn-outline-light btn-lg" style="padding: 14px 32px; font-weight: 600;">Browse All Courses</a>
+      <a href="{% url 'register' %}" class="btn btn-light btn-lg" style="color: var(--primary); padding: 14px 32px; font-weight: 600;">Create Free Account</a>
+      <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg" style="padding: 14px 32px; font-weight: 600;">Browse All Courses</a>
     </div>
   </div>
 

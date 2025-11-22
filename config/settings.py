@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'courses.apps.CoursesConfig',
     'main.apps.MainConfig',
-    'user_profile.apps.UserProfileConfig',
+    'user_profile',
     
 ]
 

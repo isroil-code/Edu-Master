@@ -27,7 +27,7 @@ class HomeView(LoginRequiredMixin,ListView):
     context_object_name = 'courses'
     
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = self.queryset
         search = self.request.GET.get('q', '')
         
         if search:
